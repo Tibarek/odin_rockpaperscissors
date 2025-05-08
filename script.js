@@ -50,14 +50,31 @@ function playRound(humanChoice, computerChoice){
     } else if(lowerHumanChoice == "scissors" && lowerComputerChoice == "rock") {
         console.log("You lose! Rock beats Scissors");
         computerScore += 1;
+    } else {
+        console.log("It's a tie");
     }
-
-    // console.log(lowerHumanChoice);
-    // console.log(lowerComputerChoice);
 
 }
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
+function playGame() {
 
-playRound(humanChoice, computerChoice);
+    for(let round = 1; round < 6; round++) {
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+    
+        playRound(humanChoice, computerChoice);
+
+    }
+    
+    if(humanScore > computerScore) {
+        console.log("Hurray! You Won");
+    } else if(humanScore < computerScore) {
+        console.log("Oops! You lose try again");
+    } else {
+        console.log("It's a tie, try again");
+    }
+    
+}
+
+playGame();
+
